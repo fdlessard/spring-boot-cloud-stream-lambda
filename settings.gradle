@@ -1,0 +1,3 @@
+rootProject.name = 'spring-boot-cloud-stream-lambda'
+include 'client-api'
+include 'client-lambda'

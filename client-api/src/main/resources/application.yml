@@ -1,0 +1,53 @@
+server:
+  port: 8080
+
+management:
+  info:
+    git:
+      mode: full
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+logging:
+  level.root: DEBUG
+  level.liquibase: INFO
+  level.io.fdlessard.codebites.cloud.stream.api.lambda: DEBUG
+
+spring:
+  application:
+    name: client-api-application
+  output:
+    ansi:
+      enabled: always
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+  jackson:
+    default-property-inclusion: non_null
+    time-zone: UTC
+    serialization:
+      write_dates_as_timestamps: false
+  cloud:
+    stream:
+      kafka:
+        binder:
+          brokers: ${KAFKA_BROKER}
+          configuration:
+            security.protocol: SASL_SSL
+            ssl.endpoint.identification.algorithm: https
+            sasl.mechanism: PLAIN
+            sasl.jaas.config: ${JAAS_CONFIG}
+            request.timeout.ms: 20000
+            retry.backoff.ms: 500
+      bindings:
+        client-out-0:
+          contentType: application/json
+          destination: client
+          useNativeEncoding: true
+
+
+client:
+  publishingActivated: true
