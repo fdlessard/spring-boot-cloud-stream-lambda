@@ -18,7 +18,7 @@ public class ClientController {
 
   private ClientService clientService;
 
-  @PostMapping(value = "/customers")
+  @PostMapping(value = "/clients")
   @ResponseStatus(HttpStatus.ACCEPTED)
   @ResponseBody
   public void post(@RequestBody Client client) {

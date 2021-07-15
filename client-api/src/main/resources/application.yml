@@ -45,9 +45,8 @@ spring:
       bindings:
         client-out-0:
           contentType: application/json
-          destination: client
+          destination: ${DESTINATION}
           useNativeEncoding: true
 
-
 client:
-  publishingActivated: true
+  publishingActivated: false
