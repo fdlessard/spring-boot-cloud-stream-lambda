@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 8081
 
 management:
   info:
@@ -11,13 +11,12 @@ management:
         include: "*"
 
 logging:
-  level.root: DEBUG
-  level.liquibase: INFO
-  level.io.fdlessard.codebites.cloud.stream.api: DEBUG
+  level.root: INFO
+  level.io.fdlessard.codebites.cloud.stream.listener: DEBUG
 
 spring:
   application:
-    name: client-api-application
+    name: client-kafka-listener-application
   output:
     ansi:
       enabled: always
@@ -43,10 +42,10 @@ spring:
             request.timeout.ms: 20000
             retry.backoff.ms: 500
       bindings:
-        client-out-0:
-          contentType: application/json
+        receiveClient-in-0:
           destination: ${DESTINATION}
-          useNativeEncoding: true
+          group: clientGroup
+          contentType: application/json
 
-client:
-  publishingActivated: true
+    function:
+      definition: receiveClient

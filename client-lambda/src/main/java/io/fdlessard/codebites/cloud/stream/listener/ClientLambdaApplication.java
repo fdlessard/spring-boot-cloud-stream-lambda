@@ -1,4 +1,4 @@
-package io.fdlessard.codebites.cloud.stream.lambda;
+package io.fdlessard.codebites.cloud.stream.listener;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;

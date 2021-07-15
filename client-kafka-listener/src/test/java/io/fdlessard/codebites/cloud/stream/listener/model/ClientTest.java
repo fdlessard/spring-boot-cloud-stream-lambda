@@ -1,7 +1,7 @@
-package io.fdlessard.codebites.cloud.stream.lambda.model;
+package io.fdlessard.codebites.cloud.stream.listener.model;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import io.fdlessard.codebites.cloud.stream.lambda.TestUtils;
+import io.fdlessard.codebites.cloud.stream.listener.TestUtils;
 import nl.jqno.equalsverifier.EqualsVerifier;
 import nl.jqno.equalsverifier.Warning;
 import org.apache.commons.lang3.RandomStringUtils;
