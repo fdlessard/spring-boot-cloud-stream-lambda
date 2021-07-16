@@ -2,9 +2,6 @@ server:
   port: 8081
 
 management:
-  info:
-    git:
-      mode: full
   endpoints:
     web:
       exposure:
@@ -44,7 +41,7 @@ spring:
       bindings:
         receiveClient-in-0:
           destination: client
-          group: customerGroup
+          group: ${CLIENT_GROUP}
           contentType: application/json
         receiveAddress-in-0:
 

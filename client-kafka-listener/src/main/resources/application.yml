@@ -2,16 +2,13 @@ server:
   port: 8081
 
 management:
-  info:
-    git:
-      mode: full
   endpoints:
     web:
       exposure:
         include: "*"
 
 logging:
-  level.root: INFO
+  level.root: DEBUG
   level.io.fdlessard.codebites.cloud.stream.listener: DEBUG
 
 spring:
@@ -36,15 +33,12 @@ spring:
           brokers: ${KAFKA_BROKER}
           configuration:
             security.protocol: SASL_SSL
-            ssl.endpoint.identification.algorithm: https
             sasl.mechanism: PLAIN
             sasl.jaas.config: ${JAAS_CONFIG}
-            request.timeout.ms: 20000
-            retry.backoff.ms: 500
       bindings:
         receiveClient-in-0:
-          destination: ${DESTINATION}
-          group: clientGroup
+          destination: ${CLIENT_DESTINATION}
+          group: ${CLIENT_GROUP}
           contentType: application/json
 
     function:

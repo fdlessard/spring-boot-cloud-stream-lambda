@@ -2,9 +2,6 @@ server:
   port: 8080
 
 management:
-  info:
-    git:
-      mode: full
   endpoints:
     web:
       exposure:
@@ -37,7 +34,6 @@ spring:
           brokers: ${KAFKA_BROKER}
           configuration:
             security.protocol: SASL_SSL
-            ssl.endpoint.identification.algorithm: https
             sasl.mechanism: PLAIN
             sasl.jaas.config: ${JAAS_CONFIG}
             request.timeout.ms: 20000
@@ -45,7 +41,7 @@ spring:
       bindings:
         client-out-0:
           contentType: application/json
-          destination: ${DESTINATION}
+          destination: ${CLIENT_DESTINATION}
           useNativeEncoding: true
 
 client:
