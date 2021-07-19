@@ -8,7 +8,7 @@ management:
         include: "*"
 
 logging:
-  level.root: DEBUG
+  level.root: INFO
   level.io.fdlessard.codebites.cloud.stream.listener: DEBUG
 
 spring:
@@ -27,7 +27,14 @@ spring:
     serialization:
       write_dates_as_timestamps: false
   cloud:
+    function:
+      definition: receiveClient
     stream:
+      bindings:
+        receiveClient-in-0:
+          destination: ${CLIENT_DESTINATION}
+          group: ${CLIENT_GROUP}
+          contentType: application/json
       kafka:
         binder:
           brokers: ${KAFKA_BROKER}
@@ -35,11 +42,3 @@ spring:
             security.protocol: SASL_SSL
             sasl.mechanism: PLAIN
             sasl.jaas.config: ${JAAS_CONFIG}
-      bindings:
-        receiveClient-in-0:
-          destination: ${CLIENT_DESTINATION}
-          group: ${CLIENT_GROUP}
-          contentType: application/json
-
-    function:
-      definition: receiveClient
