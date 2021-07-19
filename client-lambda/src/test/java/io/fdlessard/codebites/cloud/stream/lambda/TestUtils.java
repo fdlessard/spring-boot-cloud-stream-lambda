@@ -1,4 +1,4 @@
-package io.fdlessard.codebites.cloud.stream.listener;
+package io.fdlessard.codebites.cloud.stream.lambda;
 
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.databind.JavaType;

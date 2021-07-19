@@ -26,24 +26,20 @@ spring:
     time-zone: UTC
     serialization:
       write_dates_as_timestamps: false
+
   cloud:
+    function:
+      definition: receiveClient
     stream:
+      bindings:
+        receiveClient-in-0:
+          destination: ${CLIENT_DESTINATION}
+          group: ${CLIENT_GROUP}
+          contentType: application/json
       kafka:
         binder:
           brokers: ${KAFKA_BROKER}
           configuration:
             security.protocol: SASL_SSL
-            ssl.endpoint.identification.algorithm: https
             sasl.mechanism: PLAIN
             sasl.jaas.config: ${JAAS_CONFIG}
-            request.timeout.ms: 20000
-            retry.backoff.ms: 500
-      bindings:
-        receiveClient-in-0:
-          destination: client
-          group: ${CLIENT_GROUP}
-          contentType: application/json
-        receiveAddress-in-0:
-
-    function:
-      definition: receiveClient

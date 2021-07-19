@@ -1,4 +1,4 @@
-package io.fdlessard.codebites.cloud.stream.listener.model;
+package io.fdlessard.codebites.cloud.stream.lambda.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
