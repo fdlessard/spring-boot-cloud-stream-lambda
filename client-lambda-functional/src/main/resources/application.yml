@@ -13,7 +13,7 @@ logging:
 
 spring:
   application:
-    name: client-lambda-application
+    name: client-lambda-functional-application
   output:
     ansi:
       enabled: always
