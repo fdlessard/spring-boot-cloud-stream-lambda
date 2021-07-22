@@ -29,6 +29,11 @@ spring:
       write_dates_as_timestamps: false
   cloud:
     stream:
+      bindings:
+        client-out-0:
+          contentType: application/json
+          destination: ${CLIENT_DESTINATION}
+          useNativeEncoding: true
       kafka:
         binder:
           brokers: ${KAFKA_BROKER}
@@ -38,11 +43,6 @@ spring:
             sasl.jaas.config: ${JAAS_CONFIG}
             request.timeout.ms: 20000
             retry.backoff.ms: 500
-      bindings:
-        client-out-0:
-          contentType: application/json
-          destination: ${CLIENT_DESTINATION}
-          useNativeEncoding: true
 
 client:
   publishingActivated: true

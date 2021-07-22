@@ -1,4 +1,4 @@
-package io.fdlessard.codebites.cloud.stream.listener;
+package io.fdlessard.codebites.cloud.stream.lambda;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
@@ -11,10 +11,10 @@ import java.util.function.Consumer;
 
 @Slf4j
 @SpringBootApplication
-public class ClientLambdaApplication {
+public class ClientKafkaListenerApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(ClientLambdaApplication.class, args);
+        SpringApplication.run(ClientKafkaListenerApplication.class, args);
     }
 
     @Bean
