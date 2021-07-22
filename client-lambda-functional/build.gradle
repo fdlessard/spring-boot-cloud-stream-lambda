@@ -30,7 +30,7 @@ import com.github.jengelman.gradle.plugins.shadow.transformers.*
 
 jar {
     manifest {
-        attributes 'Main-Class': 'io.fdlessard.codebites.cloud.stream.lambda.ClientLambdaApplication'
+        attributes 'Main-Class': 'io.fdlessard.codebites.cloud.stream.lambda.ClientLambdaFunctionalApplication'
     }
 }
 
