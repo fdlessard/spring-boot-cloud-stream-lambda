@@ -33,13 +33,13 @@ spring:
     stream:
       bindings:
         receiveClient-in-0:
-          destination: ${CLIENT_DESTINATION}
-          group: ${CLIENT_GROUP}
+          destination: normalized.fmcrm.clients
+          group: 1385-fmcrm-clients-group
           contentType: application/json
       kafka:
         binder:
-          brokers: ${KAFKA_BROKER}
+          brokers: lkc-o5qd9-4rp0l.ca-central-1.aws.glb.confluent.cloud:9092
           configuration:
             security.protocol: SASL_SSL
             sasl.mechanism: PLAIN
-            sasl.jaas.config: ${JAAS_CONFIG}
+            sasl.jaas.config: org.apache.kafka.common.security.plain.PlainLoginModule required username="KYUWVJPOVGOAAAWG" password="LIrodyhTgxfyDwhPqNCqtYs+WYLc5yzbQ7TMlgpqtFTCwxd2WXsmr5qp478PV0rD";

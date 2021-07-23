@@ -30,16 +30,3 @@ spring:
   cloud:
     function:
       definition: receiveClient
-    stream:
-      bindings:
-        receiveClient-in-0:
-          destination: ${CLIENT_DESTINATION}
-          group: ${CLIENT_GROUP}
-          contentType: application/json
-      kafka:
-        binder:
-          brokers: ${KAFKA_BROKER}
-          configuration:
-            security.protocol: SASL_SSL
-            sasl.mechanism: PLAIN
-            sasl.jaas.config: ${JAAS_CONFIG}
