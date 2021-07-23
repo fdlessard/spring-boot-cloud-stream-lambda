@@ -28,6 +28,5 @@ spring:
       write_dates_as_timestamps: false
   cloud:
     function:
-
       definition: receiveKafkaEvent
 
